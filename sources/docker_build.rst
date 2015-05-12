@@ -29,15 +29,14 @@ We do not call the Docker Hub API until we need to do so during an actual build,
 
 **Push to Docker Hub**
 
-Shippable allows you to push an image to the Docker registry after a successful build. To do this, make sure your Docker Hub icon is set to ON on your Organization's page on Shippable.
+Shippable allows you to push an image to the docker registry after a successful build. To do this, make sure your Docker Hub icon is set to ON on your Organization's page on Shippable.
 
-The following configuration in your shippable.yml will push the image to Docker Hub after the build is successful.
+On the repository page, choose the following options to push to Docker Hub -
 
-.. code-block:: bash
+* Push Build : Yes
+* Push image to : docker_hub_username/image_name
 
-    commit_container: username/sample_project
-
-The username above should be the same as the Docker Hub credentials you entered in the previous step.
+The username above should be the same as the Docker Hub credentials you entered in to connect your Docker Hub account to Shippable.
 
 -------
 
@@ -71,11 +70,13 @@ To use these workflows, your app must be "Dockerized". Details on this can be fo
 * Enable the repository on Shippable
 * On the repo page, go to 'Settings'. Choose the following -
 
-  * Build image : Custom Image
-  * Custom image action : Build
-  * Custom image name : (Docker Hub username)/(image name)
-  * Source code path : (source code path for image you want to build)
-  * Push to Docker Hub : Check
+  * Docker Build : ON
+  * Dockerbuild order : Pre-CI
+  * Push Build : Yes if you want to push to Docker Hub, No if you don't want to push to Docker Hub 
+  * Push image to : docker_hub_username/image_name  
+    We need an image name for the image we build from your Dockerfile, even if you choose not to push to GCR
+  * Source Location : (source code location where tests will be run)
+
 * Make sure the Dockerfile for the image you want to build is at the root of your repo
 * Trigger a manual or webhook build
 * After the build is complete, make sure your Docker Hub account has the image you just pushed. The image should be tagged with the build number on Shippable.
@@ -86,13 +87,12 @@ To use these workflows, your app must be "Dockerized". Details on this can be fo
 * Enable the repository on Shippable
 * On the repo page, go to 'Settings'. Choose the following -
 
-  * Build image : Custom Image
-  * Custom image action : Build
-  * Custom image name : (Docker Hub username)/(image name)
-  * Source code path : (source code path for image you want to build)
-  * Docker build when finished : Check
-  * Image to pull: Specify image you want to run tests on, default is shippable/minv2
-  * Push to Docker Hub : Check
+  * Docker Build : ON
+  * Dockerbuild order : Post-CI
+  * Push Build : Yes if you want to push to Docker Hub, No if you don't want to push to Docker Hub 
+  * Push image to : docker_hub_username/image_name  
+  * Pull image from : Since your Dockerbuild is happening post CI, enter the image you want to use for CI
+
 * Make sure the Dockerfile for the image you want to build is at the root of your repo
 * Trigger a manual or webhook build
 * After the build is complete, make sure your Docker Hub account has the right image. The image should be tagged with the build number on Shippable.
