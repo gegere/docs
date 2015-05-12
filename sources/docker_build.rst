@@ -9,7 +9,7 @@
 
 DOCKER REGISTRIES
 =================
-Shippable is the world's only CI/CD platform built natively on Docker. All builds are run on Docker containers and this gives us a unique ability to support advanced docker workflows. We're constantly adding to our custom Docker support, so check back often!
+Shippable is the world's only CI/CD platform built natively on Docker. All builds are run on Docker containers and this gives us a unique ability to support advanced Docker workflows. We're constantly adding to our custom Docker support, so check back often!
 
 **Docker Hub**
 --------------
@@ -29,7 +29,7 @@ We do not call the Docker Hub API until we need to do so during an actual build,
 
 **Push to Docker Hub**
 
-Shippable allows you to push an image to the docker registry after a successful build. To do this, make sure your Docker Hub icon is set to ON on your Organization's page on Shippable.
+Shippable allows you to push an image to the Docker registry after a successful build. To do this, make sure your Docker Hub icon is set to ON on your Organization's page on Shippable.
 
 The following configuration in your shippable.yml will push the image to Docker Hub after the build is successful.
 
@@ -46,22 +46,24 @@ The username above should be the same as the Docker Hub credentials you entered 
 .. note::
   Docker Build Support is only available with dedicated hosts. To set up a dedicated host, please follow instructions `here <http://docs.shippable.com/en/latest/config.html#dedicated-hosts>`_
 
-You can run your build in a custom docker container by building a Docker image from a Dockerfile. Aside from providing a custom environment for your build, this image created can be pushed to your Docker Hub account, for later use in your deployment step.
+You can run your build in a custom Docker container by building a Docker image from a Dockerfile. Aside from providing a custom environment for your build, this image created can be pushed to your Docker Hub account, for later use in your deployment step.
 
 There are 2 ways to set up Docker build with Shippable - pre CI or post CI. 
 
 Pre CI workflow is:
+
 * Build the image using Dockerfile at the root of your repo
 * Pull code from GitHub/Bitbucket and test code in the container
-* Push container to docker hub
+* Push container to Docker Hub
 
 Post CI workflow is:
+
 * Pull image specified from Docker Hub (default is minv2)
 * Pull code from GitHub/Bitbucket and test in container
-* If CI passs, build container from Dockerfile at the root of the repo
-* Push container to docker hub
+* If CI passes, build container from Dockerfile at the root of the repo
+* Push container to Docker Hub
 
-To use these workflows, your app must be "dockerized". Details on this can be found in Docker's official documentation `Docker's official documentation <https://docs.dockerhub.com>`_. You can also look at our `Docker build sample app <https://github.com/cadbot/dockerized-nodejs>`_. 
+To use these workflows, your app must be "Dockerized". Details on this can be found in Docker's official documentation `Docker's official documentation <https://docs.dockerhub.com>`_. You can also look at our `Docker build sample app <https://github.com/cadbot/dockerized-nodejs>`_. 
 
 **Pre CI Dockerbuild**
 
@@ -71,7 +73,7 @@ To use these workflows, your app must be "dockerized". Details on this can be fo
 
   * Build image : Custom Image
   * Custom image action : Build
-  * Custom image name : (docker hub username)/(image name)
+  * Custom image name : (Docker Hub username)/(image name)
   * Source code path : (source code path for image you want to build)
   * Push to Docker Hub : Check
 * Make sure the Dockerfile for the image you want to build is at the root of your repo
@@ -86,7 +88,7 @@ To use these workflows, your app must be "dockerized". Details on this can be fo
 
   * Build image : Custom Image
   * Custom image action : Build
-  * Custom image name : (docker hub username)/(image name)
+  * Custom image name : (Docker Hub username)/(image name)
   * Source code path : (source code path for image you want to build)
   * Docker build when finished : Check
   * Image to pull: Specify image you want to run tests on, default is shippable/minv2
