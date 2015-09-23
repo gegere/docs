@@ -8,7 +8,7 @@ clojure-samples
 ==================
  
 This sample will help you get started with Shippable. The testing framework used here is
-`Clojure.test <http://richhickey.github.io/clojure/clojure.test-api.html>`_ .
+`test2junit <https://clojars.org/test2junit>`_ .
 
 `Clojure Sample <https://github.com/shippableSamples/sample_clojure>`_
 
@@ -43,6 +43,6 @@ Here is the complete yml file for sample_clojure:
 	# Running the test with Leiningen
 	script:
 	  - cd sample
-	  - lein test
+	  - lein test2junit
 
 Enable the repo sample_clojure and run it using an Ubuntu minion. Once the build finishes execution, you can check for the console output, test and codecoverage results on the respective build's page.
