@@ -1,4 +1,4 @@
-Shippable Documentation
+Shippable Documentation (This is now deprecated. Please make changes to docsv2)
 =======================
 
 Overview
