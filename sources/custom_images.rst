@@ -61,7 +61,7 @@ A sample yml that helps you getting started with clojure image:
   build_image: shippableimages/ubuntu1204_clojure
 
   script:
-    - lein test
+    - lein test2junit
 
 Refer `sample_ubuntu1204_clojure <https://github.com/shippableSamples/sample_ubuntu1204_clojure>`_  on github for more details.
 

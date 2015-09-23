@@ -25,10 +25,10 @@ This section helps you to create a shippable.yml file for your clojure project.
             install: lein protobuf install
 
  
-- **Test scripts**:  Use **script** key in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is **lein test** 
+- **Test scripts**:  Use **script** key in shippable.yml file to specify what command to run tests with. The default command to run leiningen test suite is **lein test2junit** 
        .. code-block:: python
 
-            script: lein test
+            script: lein test2junit
 
 **Build Examples**
 
