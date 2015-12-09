@@ -31,6 +31,12 @@ We need the yml file to analyze the project details. So add the shippable.yml fi
 
 **script :** Specify the command to run the test and coverage using script key and export the generated junit test output to shippable/testresults folder and xml coverage output to shippable/codecoverage foldet to get the visualization of reports.  
 
+Note: For using the phpunit that is installed as a composer dependency, use a command like
+
+.. code-block:: bash
+
+	vendor/bin/phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/calculator_test.php
+
 
 **notification alerts:** Email notifications are disabled in this sample project.
 
