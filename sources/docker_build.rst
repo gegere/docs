@@ -62,7 +62,7 @@ Post CI workflow is:
 * If CI passes, build container from Dockerfile at the root of the repo
 * Push container to Docker Hub
 
-To use these workflows, your app must be "Dockerized". Details on this can be found in Docker's official documentation `Docker's official documentation <https://docs.dockerhub.com>`_. You can also look at our `Docker build sample app <https://github.com/cadbot/dockerized-nodejs>`_. 
+To use these workflows, your app must be "Dockerized". Details on this can be found in Docker's official documentation `Docker's official documentation <https://docs.docker.com/docker-hub/>`_. You can also look at our `Docker build sample app <https://github.com/cadbot/dockerized-nodejs>`_. 
 
 **Pre CI Dockerbuild**
 
